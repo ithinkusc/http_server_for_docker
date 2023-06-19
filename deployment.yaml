@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-server
+  labels:
+    name: hello-world-server
+spec:
+  selector:
+    matchLabels:
+      name: hello-world-server
+  template:
+    metadata:
+      labels:
+        name: hello-world-server
+    spec:
+      containers:
+        - name: hello-world-server
+          image: ithinkusc/hello-world-http-server
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8090
